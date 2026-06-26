@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  /* Main Background Canvas */
+  --color-brand-bg: #F8F9FA;
+  
+  /* Text Typography Hierarchy */
+  --color-brand-dark: #111827;
+  --color-brand-muted: #6B7280;
+  
+  /* Main Core Budget Metrics */
+  --color-budget: #2563EB;
+  --color-spent: #4B5563;
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+
+  /* Category Badge Colors: Food (Amber) */
+  --color-food-bg: #FEF3C7;
+  --color-food-text: #92400E;
+  --color-food-border: #FDE68A;
+
+  /* Category Badge Colors: Transport (Sky) */
+  --color-trans-bg: #E0F2FE;
+  --color-trans-text: #0369A1;
+  --color-trans-border: #BAE6FD;
+
+  /* Category Badge Colors: Entertainment (Pink) */
+  --color-ent-bg: #FCE7F3;
+  --color-ent-text: #9D174D;
+  --color-ent-border: #FBCFE8;
+
+  /* Category Badge Colors: Bills & Rent (Purple) */
+  --color-bills-bg: #F3E8FF;
+  --color-bills-text: #6B21A8;
+  --color-bills-border: #E9D5FF;
+}
