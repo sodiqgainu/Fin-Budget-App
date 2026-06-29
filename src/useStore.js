@@ -25,7 +25,7 @@ setAmount: (num) => set({ amount: num }),
 
     addExpense: () => set((state) => {
     let validatorError = {};
-    
+
 
     // Checks the store's own active variable states directly
     if (!state.description.trim()) {
@@ -61,4 +61,4 @@ setAmount: (num) => set({ amount: num }),
     };
   })
 
-}))
+})) 

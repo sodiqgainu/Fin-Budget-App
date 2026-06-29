@@ -1,7 +1,8 @@
-import { LuCar, LuCirclePlus, LuHouse, LuScale, LuTrendingUp, LuTv, LuUtensils, LuWallet } from "react-icons/lu"
+import { LuCar, LuCheck, LuCirclePlus, LuHouse, LuPencilLine, LuScale, LuTrendingUp, LuTv, LuUtensils, LuWallet } from "react-icons/lu"
 import HistoryCards from "./HistoryCards"
 
 import { useBudgetStore } from "../useStore"
+import { useState } from "react"
 
 
 
@@ -19,8 +20,10 @@ const amount = useBudgetStore((state) => state.amount);
 const setAmount = useBudgetStore((state) => state.setAmount)
 const category = useBudgetStore((state) => state.category)
 const setCategory = useBudgetStore((state) => state.setCategory)
+const changeBudget = useBudgetStore((state) => state.changeBudget)
 
-
+const [isEditClick, setIsEditClick] = useState(false)
+const [editBudget, setEditBudget] = useState(budget)
 
 
   const totalSpent = expenses.reduce((acc, curr) => {
@@ -39,8 +42,39 @@ const setCategory = useBudgetStore((state) => state.setCategory)
 
             <div className='bg-white border-gray-200 flex justify-between p-4 border-[1px] rounded-2xl shadow-sm'>
                 <div className='flex flex-col gap-2'>
-                    <h2 className='text-brand-muted text-lg '>Monthly Budget</h2>
+                    <div className="flex items-center gap-1.5">
+                        <h2 className='text-brand-muted text-lg '>Monthly Budget</h2>
+                        {
+                            !isEditClick && (
+                            <button onClick={() => {setIsEditClick(true)}} className="text-budget bg-blue-50 hover:bg-blue-100 p-1.5 rounded-lg border border-blue-100 transition-colors"><LuPencilLine/></button> )
+                        }
+                        
+                    </div>
+                   
                     <h1 className='text-2xl text-budget font-bold'>{budget.toFixed(2)}$</h1>
+                    {/* edit field */}
+                    {
+                        isEditClick ?
+                         <div className="flex item-center gap-1.5">
+                          <input onChange={(e) => {
+                            setEditBudget(parseFloat(e.target.value) || 0)
+                          
+                          }} type="number" 
+                          value={editBudget === 0 ? "" : editBudget}
+                          onFocus={(e) => {
+                         if (parseFloat(e.target.value) === 0) {
+                             setEditBudget("");
+                             }
+                        }}
+                          className="w-full bg-brand-bg border border-gray-200 rounded-xl px-3 py-2 text-sm font-medium text-brand-dark placeholder-gray-400 outline-none"/>
+                          <button onClick={() => {
+                            changeBudget(parseFloat(editBudget) || 0)
+                            setIsEditClick(false)
+                            }} className="bg-budget text-lg hover:bg-blue-700 font-bold text-white p-2 rounded-xl shrink-0"><LuCheck/></button> 
+                    </div> : null
+
+                  }
+                   
                 </div>
                 
                 {/* icon */}
