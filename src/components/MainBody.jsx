@@ -108,7 +108,7 @@ const [editBudget, setEditBudget] = useState(budget)
                 </div>
                 
                 {/* icon */}
-                <span className="bg-emerald-50 text-success h-8 w-8 p-1 rounded-full">
+                <span className="bg-emerald-50 text-success h-8.5 w-8 p-1 rounded-full">
                     <LuScale className="w-full h-full" />
                 </span>
             </div>
