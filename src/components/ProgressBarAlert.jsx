@@ -1,8 +1,7 @@
 
 
-const ProgressionBar = ({monthlyBudget, totalSpent}) => {
-
-    const rawPercentage = monthlyBudget > 0 ? (totalSpent / monthlyBudget) * 100 : 0
+const ProgressBarAlert = ({monthlyBudget, totalSpent}) => {
+      const rawPercentage = monthlyBudget > 0 ? (totalSpent / monthlyBudget) * 100 : 0
 
     const percentage = Math.min(Math.max(rawPercentage, 0), 100);
 
@@ -19,4 +18,8 @@ const ProgressionBar = ({monthlyBudget, totalSpent}) => {
   )
 }
 
-export default ProgressionBar
+export default ProgressBarAlert
+
+
+
+

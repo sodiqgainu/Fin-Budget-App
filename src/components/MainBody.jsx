@@ -3,7 +3,8 @@ import HistoryCards from "./HistoryCards"
 
 import { useBudgetStore } from "../useStore"
 import { useState } from "react"
-import ProgressionBar from "./progressionBar"
+import ProgressBarAlert from "./ProgressBarAlert"
+
 
 
 
@@ -117,8 +118,8 @@ const [editBudget, setEditBudget] = useState(budget)
 
         {/* progression Bar */}
 
-
-        <ProgressionBar monthlyBudget={budget}  totalSpent={totalSpent} />
+    
+         <ProgressBarAlert monthlyBudget={budget}  totalSpent={totalSpent} />
 
 
         {/* forms container */}
