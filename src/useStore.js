@@ -1,6 +1,9 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-export const useBudgetStore = create((set) =>({
+export const useBudgetStore = create(
+  persist(
+  (set) =>({
 
     // GLOBAL VARIABLES
 
@@ -61,4 +64,11 @@ setAmount: (num) => set({ amount: num }),
     };
   })
 
-})) 
+}),
+
+{
+   name: "simple-budget-storage", 
+}
+)
+
+) 

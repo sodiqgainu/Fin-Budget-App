@@ -20,7 +20,7 @@ function App() {
   return (
   <>
   <div className="min-h-svh bg-brand-bg  p-4 px-3">
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-6xl mx-auto">
        <Header/>
        <MainBody/>
     </div>

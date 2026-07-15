@@ -4,6 +4,7 @@ import HistoryCards from "./HistoryCards"
 import { useBudgetStore } from "../useStore"
 import { useState } from "react"
 import ProgressBarAlert from "./ProgressBarAlert"
+import BudgetChart from "./BudgetChart"
 
 
 
@@ -34,6 +35,26 @@ const [editBudget, setEditBudget] = useState(budget)
 
   const remainingBalance = budget - totalSpent
 
+
+  let categoryTotals = {
+  Food: 0,
+  Transport: 0,
+  Entertainment: 0,
+ Bills: 0
+};
+
+expenses.forEach((expense) => {
+  if (categoryTotals[expense.category] !== undefined) {
+    categoryTotals[expense.category] += Number(expense.cost);
+  }
+});
+
+let chartData = [
+  { name: 'Food', value: categoryTotals.Food, color: '#2ecc71' },
+  { name: 'Transport', value: categoryTotals.Transport, color: '#3498db' },
+  { name: 'Entertainment', value: categoryTotals.Entertainment, color: '#ff9f43' }, /* Your orange! */
+  { name: 'Bills & Rent', value: categoryTotals.Bills, color: '#9b59b6' }
+].filter((item) => item.value > 0);
 
 
 
@@ -214,6 +235,12 @@ const [editBudget, setEditBudget] = useState(budget)
                 <span>Add Expense</span>
             </button>
         </form>
+
+
+        {/* CHART COMPONENT */}
+
+     <BudgetChart data={chartData} />
+
 
 
         {/* THE TRANSACTION HISTORY SECTION */}
