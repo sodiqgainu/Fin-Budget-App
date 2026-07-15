@@ -15,6 +15,7 @@ const BudgetChart = ({data}) => {
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
+           
             data={data}
             cx="50%"
             cy="50%"
@@ -22,6 +23,10 @@ const BudgetChart = ({data}) => {
             outerRadius={80}
             paddingAngle={4}
             dataKey="value"
+
+              style={{ outline: 'none' }}
+              tabIndex={-1} 
+  activeShape={false} 
              >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />

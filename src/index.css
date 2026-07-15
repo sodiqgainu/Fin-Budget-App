@@ -34,3 +34,15 @@
   --color-bills-text: #6B21A8;
   --color-bills-border: #E9D5FF;
 }
+
+
+.recharts-pie-sector:focus {
+  outline: none !important;
+}
+
+.recharts-wrapper *, 
+.recharts-surface * {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important; /* Fixes blue highlight flash on mobile phones */
+}
